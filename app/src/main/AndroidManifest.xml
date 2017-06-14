@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.organicsystemsllc.generaljournalfree"
+    android:versionCode="7"
+    android:versionName="2.0">
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+
+    <application
+        android:name=".GeneralJournalFree"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.AppCompat">
+        <activity
+            android:name=".JournalListActivity"
+            android:label="@string/title_activity_main">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".AccountsList"
+            android:label="@string/title_activity_gl_acct_list">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.organicsystemsllc.generaljournalfree.JournalListActivity" />
+        </activity>
+        <activity
+            android:name=".EditAccount"
+            android:label="@string/title_activity_edit_account">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.organicsystemsllc.generaljournalfree.AccountsList" />
+        </activity>
+        <activity
+            android:name=".ReportsList"
+            android:label="@string/title_activity_files">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.organicsystemsllc.generaljournalfree.JournalListActivity" />
+        </activity>
+        <activity
+            android:name=".JournalPreferences"
+            android:label="@string/title_activity_preferences"></activity>
+
+        <provider
+            android:name=".GLContentProvider"
+            android:authorities="com.organicsystemsllc.glproviderfree"
+            android:enabled="true"
+            android:exported="false"></provider>
+
+        <activity
+            android:name=".EditJournalEntry"
+            android:label="@string/title_activity_edit_entry">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.organicsystemsllc.generaljournalfree.JournalListActivity" />
+        </activity>
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.organicsystemsllc.generaljournalfree.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/filepaths" />
+        </provider>
+
+        <activity android:name=".LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

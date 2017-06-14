@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:generalledger="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_report_add"
+        android:icon="@drawable/ic_action_new"
+        android:orderInCategory="100"
+        android:title="@string/menu_report_add"
+        generalledger:showAsAction="ifRoom">
+
+        <menu android:id="@+id/menu_add_report_sub">
+            <item
+                android:id="@+id/menu_add_report_journal"
+                android:title="@string/menu_add_report_journal" />
+            <item
+                android:id="@+id/menu_add_report_accounts"
+                android:title="@string/menu_add_report_accounts" />
+
+        </menu>
+    </item>
+
+
+    <item
+        android:id="@+id/menu_export_refresh"
+        android:orderInCategory="100"
+        android:title="@string/menu_export_refresh"
+        generalledger:showAsAction="never" />
+
+</menu>

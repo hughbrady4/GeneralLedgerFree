@@ -1,0 +1,10 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:thumbdrive="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menu_crt_acct"
+        android:icon="@drawable/ic_action_new"
+        android:orderInCategory="100"
+        android:title="@string/menu_crt_acct"
+        thumbdrive:showAsAction="ifRoom" />
+
+</menu>
