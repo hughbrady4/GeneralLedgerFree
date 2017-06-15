@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.Menu;
@@ -20,7 +20,7 @@ import com.google.android.gms.ads.AdView;
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
 
-public class AccountsList extends ActionBarActivity implements OnClickListener {
+public class AccountsList extends AppCompatActivity implements OnClickListener {
 
     public static final String ACCOUNT_ID = "account_id";
     private static final int DELETE_ID = Menu.FIRST;

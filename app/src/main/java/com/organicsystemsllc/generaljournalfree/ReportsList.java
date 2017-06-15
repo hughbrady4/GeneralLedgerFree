@@ -13,7 +13,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v4.content.FileProvider;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.TextUtils;
@@ -48,7 +48,7 @@ import java.util.Date;
 
 import au.com.bytecode.opencsv.CSVReader;
 
-public class ReportsList extends ActionBarActivity implements OnItemClickListener, OnClickListener {
+public class ReportsList extends AppCompatActivity implements OnItemClickListener, OnClickListener {
 
     private static final String QUOTE = "\"";
     private static final char COMMA = ',';

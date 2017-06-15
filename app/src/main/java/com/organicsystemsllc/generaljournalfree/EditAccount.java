@@ -11,7 +11,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.DialogFragment;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -32,7 +32,7 @@ import java.text.DateFormat;
 import java.util.Arrays;
 import java.util.Calendar;
 
-public class EditAccount extends ActionBarActivity implements DatePickerListener {
+public class EditAccount extends AppCompatActivity implements DatePickerListener {
 
     protected static final String EDIT_MODE = "edit_mode";
     protected static final String CALENDAR = "calendar";
@@ -59,7 +59,7 @@ public class EditAccount extends ActionBarActivity implements DatePickerListener
         }
 
         // capture date picker button and handle click
-        ImageButton pickDate = (ImageButton) findViewById(R.id.button_pick_date);
+        ImageButton pickDate = findViewById(R.id.button_pick_date);
         pickDate.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Bundle bundle = new Bundle();
@@ -72,7 +72,7 @@ public class EditAccount extends ActionBarActivity implements DatePickerListener
             }
         });
 
-        Spinner typeEntry = (Spinner) findViewById(R.id.spinner_account_type);
+        Spinner typeEntry = findViewById(R.id.spinner_account_type);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
                 this, R.array.acct_types_array, R.layout.support_simple_spinner_dropdown_item);
         adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
@@ -110,7 +110,7 @@ public class EditAccount extends ActionBarActivity implements DatePickerListener
                 .addTestDevice(getString(R.string.test_device_nexus_7))
                 .build();
 
-        AdView adBannerView = (AdView) this.findViewById(R.id.adViewAccountDetail);
+        AdView adBannerView = this.findViewById(R.id.adViewAccountDetail);
         adBannerView.loadAd(adRequestBanner);
 
         //send hit to analytics
@@ -121,8 +121,8 @@ public class EditAccount extends ActionBarActivity implements DatePickerListener
     private void loadAccount() {
 
         //capture edit text widget for account title text
-        EditText title = (EditText) findViewById(R.id.edit_account_title);
-        EditText description = (EditText) findViewById(R.id.edit_account_desc);
+        EditText title = findViewById(R.id.edit_account_title);
+        EditText description = findViewById(R.id.edit_account_desc);
 
         //get uri to account record in content provider
         long accountId = getIntent().getLongExtra(AccountsList.ACCOUNT_ID, 0);
@@ -142,7 +142,7 @@ public class EditAccount extends ActionBarActivity implements DatePickerListener
         //capture spinner widget and set drop down list to array
         String type = cursor.getString(cursor.getColumnIndexOrThrow(GlOpenHelper.FLD_ACCT_TYPE));
         int index = Arrays.asList(getResources().getStringArray(R.array.acct_types_array)).indexOf(type);
-        Spinner typeEntry = (Spinner) findViewById(R.id.spinner_account_type);
+        Spinner typeEntry = findViewById(R.id.spinner_account_type);
         typeEntry.setSelection(index, true);
 
         cursor.close();
@@ -150,9 +150,9 @@ public class EditAccount extends ActionBarActivity implements DatePickerListener
 
     private boolean saveAccount() {
 
-        EditText title = (EditText) findViewById(R.id.edit_account_title);
-        EditText description = (EditText) findViewById(R.id.edit_account_desc);
-        Spinner typeEntry = (Spinner) findViewById(R.id.spinner_account_type);
+        EditText title = findViewById(R.id.edit_account_title);
+        EditText description = findViewById(R.id.edit_account_desc);
+        Spinner typeEntry = findViewById(R.id.spinner_account_type);
 
         if (title.getText().toString().length() == 0) {
             Toast.makeText(getApplicationContext(), getString(R.string.toast_title_required), Toast.LENGTH_SHORT).show();
@@ -200,7 +200,7 @@ public class EditAccount extends ActionBarActivity implements DatePickerListener
     // updates the date in the TextView    
     private void updateDateDisplay() {
         DateFormat displayFormat = DateFormat.getDateInstance();
-        TextView display = (TextView) findViewById(R.id.text_acct_date_display);
+        TextView display = findViewById(R.id.text_acct_date_display);
         display.setText(displayFormat.format(mOpenCalendar.getTime()));
     }
 
