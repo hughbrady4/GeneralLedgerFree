@@ -10,7 +10,7 @@ import android.preference.PreferenceManager;
 import android.support.v4.app.LoaderManager.LoaderCallbacks;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.TextUtils;
@@ -34,7 +34,7 @@ import com.google.android.gms.analytics.Tracker;
 
 import java.util.Calendar;
 
-public class JournalListActivity extends ActionBarActivity
+public class JournalListActivity extends AppCompatActivity
         implements LoaderCallbacks<Cursor>, OnClickListener {
 
     private static final int ACTIVITY_ACCOUNTS = 0;
@@ -43,6 +43,7 @@ public class JournalListActivity extends ActionBarActivity
     private static final int ACTIVITY_SETTINGS = 3;
     private static final int DELETE_ID = Menu.FIRST;
     private static final int POST_ID = Menu.FIRST + 1;
+    private static final int ACTIVITY_SIGN_IN = 4;
     private ExpandableListView mExpandableList;
     private InterstitialAd mInterstitial;
 
@@ -139,7 +140,9 @@ public class JournalListActivity extends ActionBarActivity
                 Intent k = new Intent(this, ReportsList.class);
                 startActivityForResult(k, ACTIVITY_FILES);
                 return true;
-
+            case R.id.menu_sign_in:
+                Intent l = new Intent(this, LoginActivity.class);
+                startActivityForResult(l, ACTIVITY_SIGN_IN);
             case R.id.menu_settings:
                 Intent n = new Intent(this, JournalPreferences.class);
                 startActivityForResult(n, ACTIVITY_SETTINGS);
